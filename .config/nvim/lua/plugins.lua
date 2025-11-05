@@ -29,6 +29,7 @@ Plug('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && npx --yes yarn instal
 Plug 'tpope/vim-repeat' -- Repeat commands from plugins using .
 Plug('stsewd/isort.nvim', { ['do'] = ':UpdateRemotePlugins' }) -- Sort python imports
 Plug 'klen/nvim-config-local' -- Load and trust local config files
+Plug('nvim-treesitter/nvim-treesitter', {['branch'] = 'master', ['lazy'] = false, ['build'] = ':TSUpdate'}) -- Improved syntax highlighting
 vim.call('plug#end')
 
 -- Extensions
