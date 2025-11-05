@@ -1,0 +1,61 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet box "Create a box arround the text" b
+\noindent\fbox{%
+	\parbox{\textwidth}{%
+		${0:${VISUAL:Text}}
+	}%
+}%
+
+endsnippet
+
+snippet mn "Unnumbered equation" b
+\[
+	${0:${VISUAL:Equation}}
+\]
+endsnippet
+
+snippet frame "Create beamer frame" b
+\\begin{frame}{${1:Title}}
+$0
+\\end{frame}
+endsnippet
+
+snippet dma "Create latex editting command" b
+\\usepackage{ifthen}
+\\usepackage[normalem\]{ulem}
+
+\\newcommand\\orangesout{\\bgroup\\markoverwith{\\textcolor{orange}{\\rule[0.5ex\\]{2pt}{0.4pt}}}\\ULon}%
+\\newcommand{\\ma}[2\]{\\ifthenelse{\\equal{#1}{}}{\\textcolor{orange}{#2}}{\\ifthenelse{\\equal{#2}{}}{\\orangesout{#1}}{\\orangesout{#1} \\textcolor{orange}{#2}}}}%
+% \\renewcommand{\\ma}[2\]{\\textcolor{orange}{#2}}
+% \\renewcommand{\\ma}[2\]{#2}
+
+endsnippet
+
+snippet ma "Insert editting command" bA
+\\ma{${VISUAL}}{$0}
+endsnippet
