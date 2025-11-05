@@ -1,0 +1,13 @@
+add_newline = true
+command_timeout = 10000
+
+# [line_break]
+# disabled = true
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+[[battery.display]]
+threshold = 20
+
