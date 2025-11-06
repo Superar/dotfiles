@@ -33,7 +33,7 @@ Plug('nvim-treesitter/nvim-treesitter', {['branch'] = 'master', ['lazy'] = false
 vim.call('plug#end')
 
 -- Extensions
-vim.g.coc_global_extentions = { 'coc-discord-rpc',
+vim.g.coc_global_extensions = { 'coc-discord-rpc',
                                 'coc-highlight',
                                 'coc-json',
                                 'coc-pairs',
@@ -42,4 +42,5 @@ vim.g.coc_global_extentions = { 'coc-discord-rpc',
                                 'coc-sh',
                                 'coc-snippets',
                                 'coc-vimlsp',
-                                'coc-vimtex' }
+                                'coc-vimtex',
+                                'coc-lua'}

@@ -6,5 +6,6 @@
     "coc.preferences.formatOnSaveFiletypes": ["json"],
     "prettier.tabWidth": 4,
     "snippets.ultisnips.pythonPrompt": false,
-    "inlayHint.enable": false
+    "inlayHint.enable": false,
+    "Lua.diagnostics.globals": ["vim"]
 }
