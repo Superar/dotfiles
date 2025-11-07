@@ -13,7 +13,6 @@ Plug 'tpope/vim-dispatch' -- Run make command in background
 Plug 'numToStr/Comment.nvim' -- Easy commenting with gcc
 Plug 'startup-nvim/startup.nvim' -- Startup dashboard
 Plug 'honza/vim-snippets' -- Snippets
-Plug 'vim-autoformat/vim-autoformat' -- Autoformatting code
 Plug 'folke/which-key.nvim' -- Show keybind menu
 Plug 'nvim-mini/mini.icons' -- Icons for which-key
 Plug 'nvim-telescope/telescope-file-browser.nvim' -- File browser for telescope
@@ -38,9 +37,7 @@ vim.g.coc_global_extensions = {
     'coc-highlight',
     'coc-json',
     'coc-pairs',
-    'coc-prettier',
     'coc-pyright',
-    '@yaegassy/coc-ruff',
     'coc-sh',
     'coc-snippets',
     'coc-vimlsp',

@@ -1,11 +1,21 @@
 {
-    "colors.filetypes": ["*"],
+    "[html][css][javascript]": {
+        "colors.enable": true
+    },
     "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
     "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "ruff",
+    "python.formatting.ruffArgs": [
+        "--config",
+        "~/.config/nvim/ruff.toml"
+    ],
     "snippets.ultisnips.directories": [],
-    "coc.preferences.formatOnSaveFiletypes": ["json"],
-    "prettier.tabWidth": 4,
+    "[json]": {
+        "coc.preferences.formatOnSave": true
+    },
     "snippets.ultisnips.pythonPrompt": false,
     "inlayHint.enable": false,
-    "Lua.diagnostics.globals": ["vim"]
+    "Lua.diagnostics.globals": [
+        "vim"
+    ]
 }

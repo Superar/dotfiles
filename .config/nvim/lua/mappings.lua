@@ -17,10 +17,8 @@ vim.keymap.set('n', '<C-n>', '<cmd>NERDTree<cr>')
 vim.keymap.set('n', '<leader>b', '<cmd>NERDTreeToggle<cr>')
 vim.keymap.set('n', '<C-f>', '<cmd>NERDTreeFind<cr>')
 
--- Autoformat
-vim.keymap.set('n', '<leader>ii', '<cmd>Autoformat<cr>')
-
 -- CoC
+vim.keymap.set('n', '<leader>ii', '<cmd>call CocAction(\'format\')<cr>')
 vim.keymap.set('n', '<leader>io', '<cmd>OR<cr>')
 vim.keymap.set('n', '<C-j>',
     function()
@@ -39,7 +37,7 @@ vim.keymap.set('n', '<C-k>',
             return '<C-k>'
         end
     end,
-    {expr = true, silent = true})
+    { expr = true, silent = true })
 vim.keymap.set('n', '<Esc>',
     function()
         if vim.fn['coc#float#has_float']() then
@@ -48,7 +46,7 @@ vim.keymap.set('n', '<Esc>',
             return '<Esc>'
         end
     end,
-    {expr = true, silent = true})
+    { expr = true, silent = true })
 vim.keymap.set('v', '<leader>ca', '<Plug>(coc-codeaction-selected)<cr>')
 vim.keymap.set('i', '<C-j>',
     function()
@@ -58,7 +56,7 @@ vim.keymap.set('i', '<C-j>',
             return '<C-j>'
         end
     end,
-    {expr = true, silent = true})
+    { expr = true, silent = true })
 vim.keymap.set('i', '<C-k>',
     function()
         if vim.fn['coc#pum#visible']() == 1 then
@@ -67,7 +65,7 @@ vim.keymap.set('i', '<C-k>',
             return '<C-k>'
         end
     end,
-    {expr = true, silent = true})
+    { expr = true, silent = true })
 vim.keymap.set('i', '<C-l>',
     function()
         if vim.fn['coc#float#has_scroll']() then
@@ -76,7 +74,7 @@ vim.keymap.set('i', '<C-l>',
             return '<C-l>'
         end
     end,
-    {expr = true, silent = true})
+    { expr = true, silent = true })
 vim.keymap.set('i', '<C-h>',
     function()
         if vim.fn['coc#float#has_scroll']() then
@@ -85,7 +83,7 @@ vim.keymap.set('i', '<C-h>',
             return '<C-h>'
         end
     end,
-    {expr = true, silent = true})
+    { expr = true, silent = true })
 
 -- Tabular
 vim.keymap.set('n', '<localleader>lfe', '<cmd>Tabularize /&<cr>')
