@@ -18,6 +18,31 @@ This repository contains my personal configuration files (dotfiles).
    stow -v .
    ```
 
+## Further setup
+
+1. Install [rustup](https://rustup.rs/)
+2. Install tree-sitter cli with:
+
+```bash
+cargo install --locked tree-sitter-cli
+```
+3. Install node and npm
+
+```bash
+sudo apt install nodejs npm
+```
+4. Install pip and pynvim
+
+```bash
+sudo apt install python3-pip python3-pynvim
+```
+
+If this does not work, fix the python3 version and install it directly with
+
+```bash
+python3 -m pip install pynvim --break-system-packages
+```
+
 ## Things I use
 
 - [Kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
