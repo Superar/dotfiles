@@ -58,3 +58,9 @@ python3 -m pip install pynvim --break-system-packages
 ```
 options snd-hda-intel model=dell-headset-multi
 ```
+
+- To use neovim as the git editor:
+
+```bash
+git config --global core.editor "nvim"
+```
