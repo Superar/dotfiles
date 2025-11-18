@@ -49,3 +49,12 @@ python3 -m pip install pynvim --break-system-packages
 - [Starship](https://starship.rs/) - Shell Prompt
 - [Gruvbox](https://github.com/morhetz/gruvbox) - Color Scheme
 - [Neovim](https://neovim.io/) - Text Editor
+- [Vim-plug](https://github.com/junegunn/vim-plug) - Neovim Plugin Manager
+
+## Quick fixes
+
+- To fix headset microphone not working, edit or create `/etc/modprobe.d/hda-model.conf`:
+
+```
+options snd-hda-intel model=dell-headset-multi
+```
