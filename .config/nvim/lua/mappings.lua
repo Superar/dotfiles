@@ -99,3 +99,7 @@ vim.keymap.set('v', '<leader>qx', '<Plug>(coc-snippets-select)')
 
 -- Markdown Preview
 vim.keymap.set('n', '<localleader>mv', '<cmd>MarkdownPreviewToggle<cr>')
+
+-- Typst
+vim.keymap.set('n', '<localleader>tl', '<cmd>make<cr>')
+vim.keymap.set('n', '<localleader>tv', '<cmd>TypstPreviewToggle<cr>')

@@ -29,6 +29,9 @@ Plug('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && npx --yes yarn instal
 Plug 'tpope/vim-repeat' -- Repeat commands from plugins using .
 Plug 'klen/nvim-config-local' -- Load and trust local config files
 Plug('nvim-treesitter/nvim-treesitter', {['branch'] = 'master', ['lazy'] = false, ['build'] = ':TSUpdate'}) -- Improved syntax highlighting
+Plug('kaarmu/typst.vim') -- Typst integration for writing documents
+Plug('chomosuke/typst-preview.nvim', {['tag'] = 'v1.*'}) -- Typst real-time visualization
+Plug('williamboman/mason.nvim') -- Install LSPs easily
 vim.call('plug#end')
 
 -- Extensions
