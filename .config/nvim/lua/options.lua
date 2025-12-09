@@ -20,3 +20,6 @@ vim.o.updatetime = 100
 vim.o.colorcolumn = '80'
 
 vim.g.python3_host_prog='/usr/bin/python3'
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
