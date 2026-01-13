@@ -6,3 +6,7 @@ alias cdd='cd /home/mlinacio/HDD/Documentos/Doutorado/Docencia'
 alias mkproj='git init & mkdir data docs results scripts src tests & touch .gitignore README.md'
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
 alias ssh='kitty +kitten ssh'
+
+compress-pdf() {
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${1%.pdf}-compressed.pdf" "$1"
+}
