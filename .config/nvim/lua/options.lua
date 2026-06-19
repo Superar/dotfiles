@@ -8,7 +8,7 @@ vim.o.smartindent = true
 vim.o.exrc = true -- Run local vimrc file in directories
 vim.o.number = true
 vim.o.relativenumber = true -- Use relative numbers
-vim.o.hidden = true -- Keep files open
+vim.o.confirm = true -- Keep files open
 vim.o.incsearch = true -- Highlight search while writing
 vim.o.hlsearch = false -- Do not highlight search after enter set ignorecase
 vim.o.ignorecase = true
@@ -19,7 +19,8 @@ vim.o.encoding = 'utf8'
 vim.o.updatetime = 100
 vim.o.colorcolumn = '80'
 
-vim.g.python3_host_prog='/usr/bin/python3'
+vim.g.python3_host_prog = '/usr/bin/python3'
 
+vim.o.foldlevelstart = 99
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"

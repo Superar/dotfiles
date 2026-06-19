@@ -5,13 +5,13 @@ This repository contains my personal configuration files (dotfiles).
 ## How to use
 
 1. Clone this repository to `~/.dotfiles`.
-3. Install `stow`:
+2. Install `stow`:
 
     ```bash
     sudo apt install stow
     ```
 
-2. Run `stow` to create symlinks for all configuration files:
+3. Run `stow` to create symlinks for all configuration files:
 
    ```bash
    cd ~/.dotfiles
@@ -24,17 +24,19 @@ This repository contains my personal configuration files (dotfiles).
 2. Install tree-sitter cli with:
 
 ```bash
+sudo apt install libclang-dev
 cargo install --locked tree-sitter-cli
 ```
 3. Install node and npm
 
 ```bash
 sudo apt install nodejs npm
+npm install -g neovim
 ```
 4. Install pip and pynvim
 
 ```bash
-sudo apt install python3-pip python3-pynvim
+sudo apt install python3-pip python3-pynvim python3-venv
 ```
 
 If this does not work, fix the python3 version and install it directly with
@@ -43,13 +45,28 @@ If this does not work, fix the python3 version and install it directly with
 python3 -m pip install pynvim --break-system-packages
 ```
 
+5. Install luarocks
+
+```bash
+sudo apt install luarocks
+sudo luarocks install jsregexp
+```
+
+6. Install latex and utilities
+
+```bash
+sudo apt install texlive-base texlive-bibtex-extra texlive-fonts-extra \
+texlive-latex-recommended texlive-publishers texlive-science \
+texlive-xetex biber zathura xdotool
+```
+
 ## Things I use
 
 - [Kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
 - [Starship](https://starship.rs/) - Shell Prompt
 - [Gruvbox](https://github.com/morhetz/gruvbox) - Color Scheme
 - [Neovim](https://neovim.io/) - Text Editor
-- [Vim-plug](https://github.com/junegunn/vim-plug) - Neovim Plugin Manager
+- [lazy.nvim](https://lazy.folke.io/) - lazy.nvim Plugin Manager
 
 ## Quick fixes
 

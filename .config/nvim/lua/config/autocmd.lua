@@ -11,3 +11,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     callback = TrimWhitespace
 })
 
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = "*.typ",
+  command = "setfiletype typst",
+})

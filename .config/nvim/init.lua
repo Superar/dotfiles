@@ -1,6 +1,5 @@
 require('options')
-require('plugins')
 require('mappings')
-require('autocmd')
-require('colorscheme')
-
+require('config.lazy')
+require('config.autocmd')
+require('config.lsp')
