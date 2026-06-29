@@ -115,10 +115,6 @@ vim.lsp.config('tinymist', {
     }
 })
 
--- Python configurations
--- isort for sorting imports
-vim.g.isort_command = 'isort'
-
 -- Texlab configurations
 vim.lsp.config('texlab', {
     filetypes = { 'tex' }
