@@ -23,4 +23,4 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
