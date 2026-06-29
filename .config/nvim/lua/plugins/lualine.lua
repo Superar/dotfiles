@@ -17,21 +17,9 @@ return {
             lualine_a = { "mode" },
             lualine_b = {
               "branch",
-              {
-                "diff",
-                source = diff,
-              },
             },
             lualine_c = {
               "filename",
-              {
-                ime_state,
-                color = { fg = "black", bg = "#f46868" },
-              },
-              {
-                spell,
-                color = { fg = "black", bg = "#a7c080" },
-              },
             },
             lualine_x = {
               "encoding",
@@ -51,14 +39,6 @@ return {
               {
                 "diagnostics",
                 sources = { "nvim_diagnostic" },
-              },
-              {
-                trailing_space,
-                color = "WarningMsg",
-              },
-              {
-                mixed_indent,
-                color = "WarningMsg",
               },
             },
           },
