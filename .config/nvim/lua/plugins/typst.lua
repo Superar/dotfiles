@@ -27,6 +27,44 @@ vim.api.nvim_create_user_command("TypstPin", function()
   end
 end, {})
 
+-- Acrostiche native autocomplete
+vim.api.nvim_create_autocmd("TextChangedI", {
+  pattern = "*.typ",
+  group = vim.api.nvim_create_augroup("TypstAcronymComplete", { clear = true }),
+  callback = function()
+    local line = vim.api.nvim_get_current_line()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    local prefix = line:sub(1, col)
+    
+    -- Trigger completion specifically when typing the `"` after an acrostiche command
+    if prefix:match('#ac%a*%("$') then
+      local acronyms_file = vim.fn.findfile("acronyms.typ", ".;")
+      if acronyms_file ~= "" then
+        local items = {}
+        local f = io.open(acronyms_file, "r")
+        if f then
+          for l in f:lines() do
+            local k, v = l:match('^%s*"([^"]+)"%s*:%s*"([^"]+)"')
+            if k and v then
+              table.insert(items, {
+                word = k,
+                abbr = k,
+                menu = v,
+                kind = "Acr",
+                info = v
+              })
+            end
+          end
+          f:close()
+        end
+        if #items > 0 then
+          vim.fn.complete(col + 1, items)
+        end
+      end
+    end
+  end
+})
+
 return {
     {
         "kaarmu/typst.vim", -- Typst integration for writing documents

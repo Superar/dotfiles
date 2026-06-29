@@ -22,7 +22,8 @@ return {
                 "tinymist",
                 "lua-language-server",
                 "bash-language-server",
-                "jsonls"
+                "jsonls",
+                "typstyle"
             }
         }
     }
