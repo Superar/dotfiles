@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>s', '<cmd>Telescope treesitter<cr>')
 
 -- Neotree commands
 vim.keymap.set('n', '<leader>b', '<cmd>Neotree toggle<cr>', { desc = "Open Neotree file explorer" })
+vim.keymap.set('n', '<leader>n', '<cmd>Neotree reveal<cr>', { desc = "Open current file in Neotree" })
 
 
 -- Tabular
