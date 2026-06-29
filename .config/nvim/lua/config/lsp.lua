@@ -1,18 +1,3 @@
--- Code format key maps
-vim.keymap.set("n", "<leader>ii", function()
-    vim.lsp.buf.format({ async = true })
-end, { desc = "Format file" })
-
-vim.keymap.set("x", "<leader>ii", function()
-    vim.lsp.buf.format({ async = true })
-end, { desc = "Format selection" })
-
--- Enable autocomplete
-vim.o.complete = '.,w,b,o'
-vim.o.completeopt = 'menuone,noselect,fuzzy,popup'
-vim.o.autocomplete = true
-vim.o.autocompletedelay = 250
-
 -- Configuration only when an LSP is active
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
@@ -25,6 +10,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map("n", "gd", vim.lsp.buf.definition, "Go to definition")
         map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
         map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
+        map("n", "<leader>ii", function()
+            vim.lsp.buf.format({ async = true })
+        end, "Format file")
+
+        map("x", "<leader>ii", function()
+            vim.lsp.buf.format({ async = true })
+        end, "Format selection")
+
 
         -- Enable built-in native completion for Neovim 0.11+
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -95,27 +88,12 @@ vim.diagnostic.config({
     underline = true,
 })
 
--- Lua configurations
-vim.lsp.config('lua_ls', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                disable = { "missing-fields" },
-                globals = { "vim" },
-            }
-        }
-    }
-})
-
--- Typst configurations
-vim.lsp.config('tinymist', {
-    settings = {
-        formatterMode = "typstyle",
-        exportPdf = "onType"
-    }
-})
-
--- Texlab configurations
-vim.lsp.config('texlab', {
-    filetypes = { 'tex' }
+vim.lsp.enable({
+    "pyright",
+    "ruff",
+    "texlab",
+    "tinymist",
+    "lua_ls",
+    "bashls",
+    "jsonls",
 })

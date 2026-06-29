@@ -26,3 +26,9 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 vim.o.background = "dark"
+
+-- Enable autocomplete
+vim.o.complete = '.,w,b,o'
+vim.o.completeopt = 'menuone,noselect,fuzzy,popup'
+vim.o.autocomplete = true
+vim.o.autocompletedelay = 250
