@@ -11,11 +11,8 @@ vim.keymap.set('n', '<leader>fr', '<cmd>Telescope registers<cr>')
 vim.keymap.set('n', '<leader>fk', '<cmd>Telescope keymaps<cr>')
 vim.keymap.set('n', '<leader>s', '<cmd>Telescope treesitter<cr>')
 
--- NERDTree commands
-vim.keymap.set('n', '<leader>n', '<cmd>NERDTreeFocus<cr>')
-vim.keymap.set('n', '<C-n>', '<cmd>NERDTree<cr>')
-vim.keymap.set('n', '<leader>b', '<cmd>NERDTreeToggle<cr>')
-vim.keymap.set('n', '<C-f>', '<cmd>NERDTreeFind<cr>')
+-- Neotree commands
+vim.keymap.set('n', '<leader>b', '<cmd>Neotree toggle<cr>', { desc = "Open Neotree file explorer" })
 
 
 -- Tabular

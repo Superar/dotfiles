@@ -71,7 +71,7 @@ return {
             lualine_z = {},
           },
           tabline = {},
-          extensions = { "quickfix", "nerdtree" },
+          extensions = { "quickfix", "neo-tree" },
         })
     end,
 }
