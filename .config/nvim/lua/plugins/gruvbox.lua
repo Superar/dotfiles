@@ -1,4 +1,5 @@
 -- Color theme
+
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
         vim.api.nvim_set_hl(0, 'LspReferenceRead', { bg = '#3c3836', underline = true })
@@ -8,11 +9,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 return {
-    'gruvbox-community/gruvbox',
-    lazy = false,
+    'ellisonleao/gruvbox.nvim',
     priority = 1000,
+    lazy = false,
     config = function()
         vim.cmd('colorscheme gruvbox')
-        vim.api.nvim_set_hl(0, 'Normal', { bg = none })
     end
 }
