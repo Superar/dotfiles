@@ -42,6 +42,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 return '<C-n>'
             elseif vim.snippet.active({ direction = 1 }) then
                 return '<cmd>lua vim.snippet.jump(1)<cr>'
+            elseif require("luasnip").expand_or_jumpable() then
+                return '<cmd>lua require("luasnip").expand_or_jump()<cr>'
             else
                 return '<Tab>'
             end
