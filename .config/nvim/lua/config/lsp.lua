@@ -10,13 +10,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map("n", "gd", vim.lsp.buf.definition, "Go to definition")
         map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
         map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
-        map("n", "<leader>ii", function()
-            vim.lsp.buf.format({ async = true })
-        end, "Format file")
-
-        map("x", "<leader>ii", function()
-            vim.lsp.buf.format({ async = true })
-        end, "Format selection")
 
 
         -- Enable built-in native completion for Neovim 0.11+

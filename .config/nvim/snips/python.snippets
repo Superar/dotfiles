@@ -24,21 +24,19 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet main "Create starting script with main function and arguments" b
-import argparse
+snippet main Create starting script with main function and arguments
+	import argparse
 
 
-def parse_args() -> argparse.Namespace:
-	parser = argparse.ArgumentParser()
-	return parser.parse_args()
+	def parse_args() -> argparse.Namespace:
+		parser = argparse.ArgumentParser()
+		return parser.parse_args()
 
 
-def main(args: argparse.Namespace):
-	pass
+	def main(args: argparse.Namespace):
+		pass
 
 
-if __name__ == '__main__':
-	args = parse_args()
-	main(args)
-
-endsnippet
+	if __name__ == '__main__':
+		args = parse_args()
+		main(args)

@@ -31,3 +31,11 @@ vim.keymap.set('n', '<localleader>mv', '<cmd>MarkdownPreviewToggle<cr>')
 -- Typst
 vim.keymap.set('n', '<localleader>tl', '<cmd>make<cr>')
 vim.keymap.set('n', '<localleader>tv', '<cmd>TypstPreviewToggle<cr>')
+
+-- Conform.nvim
+vim.keymap.set('n', '<leader>ii', function ()
+    require("conform").format({ async = true, lsp_format = "fallback" })
+end, { desc = "Format file" })
+vim.keymap.set('x', '<leader>ii', function ()
+    require("conform").format({ async = true, lsp_format = "fallback" })
+end, { desc = "Format selection" })
