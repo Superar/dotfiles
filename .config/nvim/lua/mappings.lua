@@ -31,6 +31,7 @@ vim.keymap.set('n', '<localleader>mv', '<cmd>MarkdownPreviewToggle<cr>')
 -- Typst
 vim.keymap.set('n', '<localleader>tl', '<cmd>make<cr>')
 vim.keymap.set('n', '<localleader>tv', '<cmd>TypstPreviewToggle<cr>')
+vim.keymap.set('n', '<localleader>tp', '<cmd>TypstPin<cr>')
 
 -- Conform.nvim
 vim.keymap.set('n', '<leader>ii', function ()
