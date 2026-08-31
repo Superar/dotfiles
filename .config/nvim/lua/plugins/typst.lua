@@ -9,7 +9,7 @@ return {
         ft = "typst",
         version = "1.*",
         opts = {
-            extra_args = { "--font-path", "fonts" }
+            extra_args = { "--font-path", "assets/fonts" }
         }
     },
 }

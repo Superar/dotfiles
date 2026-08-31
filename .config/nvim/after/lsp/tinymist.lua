@@ -1,6 +1,7 @@
 return {
     settings = {
         formatterMode = "typstyle",
-        exportPdf = "onSave"
+        exportPdf = "onSave",
+        fontPahts = { "assets/fonts" }
     }
 }
