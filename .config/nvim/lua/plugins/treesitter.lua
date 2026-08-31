@@ -9,7 +9,8 @@ return {
             "bash",
             "vim",
             "vimdoc",
-            "markdown"
+            "markdown",
+            "typst"
         },
         auto_install = true,
         highlight = {

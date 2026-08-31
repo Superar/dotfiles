@@ -1,3 +1,6 @@
+vim.bo.commentstring = "// %s"
+vim.bo.makeprg = "make"
+
 local function tinymist_pin(path)
     local client = vim.lsp.get_clients({ name = "tinymist", bufnr = 0 })[1]
 
@@ -133,8 +136,9 @@ local map = function(lhs, rhs, desc)
     vim.keymap.set("n", lhs, rhs, { buffer = true, desc = desc })
 end
 
-map('<localleader>tl', '<cmd>make<cr>', "Typst: compile")
+map('<localleader>tl', '<cmd>make!<cr>', "Typst: compile")
 map('<localleader>tv', '<cmd>TypstPreviewToggle<cr>', "Typst: toggle preview")
 map('<localleader>tp', '<cmd>TypstPin<cr>', "Typst: pin main file")
 map('<localleader>tu', '<cmd>TypstUnpin<cr>', "Typst: unpin")
-map("<localleader>tf", "<cmd>make final<cr>", "Typst: build clean PDF")
+map("<localleader>tf", "<cmd>make! final<cr>", "Typst: build clean PDF")
+map("<localleader>tc", "<cmd>make! clean<cr>", "Typst: clean PDF files")
