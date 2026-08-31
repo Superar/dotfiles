@@ -16,11 +16,6 @@ local function tinymist_pin(path)
     end, 0)
 end
 
-local function main_file()
-    local root = vim.fs.root(0, { "typst.toml", ".git" })
-    return root and (root .. "/main.typ") or nil
-end
-
 vim.api.nvim_buf_create_user_command(0, "TypstPin", function()
     tinymist_pin(vim.api.nvim_buf_get_name(0))
 end, {})
@@ -33,7 +28,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     buffer = 0,
     callback = function(ev)
         if vim.lsp.get_client_by_id(ev.data.client_id).name ~= "tinymist" then return end
-        local main = main_file()
+        local main = vim.fn.getcwd() .. "/main.typ"
         if main then vim.schedule(function() tinymist_pin(main) end) end
     end,
 })
@@ -75,3 +70,71 @@ vim.api.nvim_create_autocmd("TextChangedI", {
         end
     end
 })
+
+-- Command to list all revision marks
+vim.api.nvim_buf_create_user_command(0, "TypstMarks", function()
+    local root = vim.fs.root(0, { "typst.toml", ".git" }) or vim.fn.getcwd()
+    local out = vim.fn.systemlist({
+        "rg", "--vimgrep", "--no-heading", "-g", "*.typ",
+        [[#m[a-z]-(add|del|rep)\[]], root,
+    })
+    vim.fn.setqflist({}, " ", {
+        title = "typst revision marks",
+        lines = out,
+        efm = "%f:%l:%c:%m",
+    })
+    vim.cmd("copen")
+end, {})
+
+-- Review commands (<author>-add, <author>-del, <author>-rep)
+local revisions = vim.g.typst_revisions
+
+if revisions then
+    local function set_round(name)
+        local cfg = vim.g.typst_revisions
+        cfg.current = name
+        vim.g.typst_revisions = cfg
+    end
+
+    local function wrap_selection(op)
+        local round = vim.g.typst_revisions.current
+        local saved = vim.fn.getreginfo("z")
+        vim.cmd('noautocmd normal! "zy')
+        local selection = vim.fn.getreg("z")
+        vim.fn.setreg("z", ("#%s-%s[%s]"):format(round, op, selection), "v")
+        vim.cmd('noautocmd normal! gv"zp')
+        vim.fn.setreg("z", saved)
+    end
+
+    -- \ta to add
+    vim.keymap.set("x", "<localleader>ta", function() wrap_selection("add") end,
+        { buffer = true, desc = "Typst: mark selection as addition" })
+    -- \td to delete
+    vim.keymap.set("x", "<localleader>td", function() wrap_selection("del") end,
+        { buffer = true, desc = "Typst: mark selection as deletion" })
+
+
+    vim.api.nvim_buf_create_user_command(0, "TypstRound", function(opts)
+        if opts.args == "" then
+            vim.notify("current round: " .. vim.g.typst_revisions.current)
+        else
+            set_round(opts.args)
+            vim.notify("revision round: " .. opts.args)
+        end
+    end, {
+        nargs = "?",
+        complete = function() return vim.g.typst_revisions.rounds end,
+    })
+end
+
+
+-- General mappings
+local map = function(lhs, rhs, desc)
+    vim.keymap.set("n", lhs, rhs, { buffer = true, desc = desc })
+end
+
+map('<localleader>tl', '<cmd>make<cr>', "Typst: compile")
+map('<localleader>tv', '<cmd>TypstPreviewToggle<cr>', "Typst: toggle preview")
+map('<localleader>tp', '<cmd>TypstPin<cr>', "Typst: pin main file")
+map('<localleader>tu', '<cmd>TypstUnpin<cr>', "Typst: unpin")
+map("<localleader>tf", "<cmd>make final<cr>", "Typst: build clean PDF")
