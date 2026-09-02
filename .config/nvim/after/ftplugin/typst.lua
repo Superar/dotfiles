@@ -130,6 +130,19 @@ if revisions then
     })
 end
 
+-- Jump through sections
+local function jump(back)
+    return function()
+        local flags = back and "bW" or "W"
+        for i = 1, vim.v.count1 do
+            vim.fn.search([[^\s*=\+\s]], i == 1 and flags .. "s" or flags)
+        end
+    end
+end
+local opts = { buffer = true, silent = true }
+vim.keymap.set({ "n", "x", "o" }, "]]", jump(false), vim.tbl_extend("force", opts, { desc = "Next section" }))
+vim.keymap.set({ "n", "x", "o" }, "[[", jump(true), vim.tbl_extend("force", opts, { desc = "Previous section" }))
+
 
 -- General mappings
 local map = function(lhs, rhs, desc)
