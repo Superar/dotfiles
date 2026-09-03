@@ -1,6 +1,9 @@
 vim.bo.commentstring = "// %s"
 vim.bo.makeprg = "make"
 
+vim.opt_local.spell = true
+vim.opt_local.spalllang = "en_us"
+
 local function tinymist_pin(path)
     local client = vim.lsp.get_clients({ name = "tinymist", bufnr = 0 })[1]
 
