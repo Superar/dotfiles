@@ -12,7 +12,7 @@ return {
             "vim",
             "vimdoc",
             "markdown",
-            "markdown-inline",
+            "markdown_inline",
             "typst"
         })
     end
