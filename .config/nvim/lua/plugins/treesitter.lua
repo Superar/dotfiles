@@ -1,8 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
-    opts = {
-        ensure_installed = {
+    config = function()
+        require("nvim-treesitter").install({
             "python",
             "lua",
             "latex",
@@ -11,12 +13,6 @@ return {
             "vimdoc",
             "markdown",
             "typst"
-        },
-        auto_install = true,
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true },
-    },
+        })
+    end
 }
