@@ -6,7 +6,7 @@ return {
         dependencies = {
             {
                 "mason-org/mason.nvim",
-                opts={}
+                opts = {}
             },
             "neovim/nvim-lspconfig"
         }
@@ -23,7 +23,9 @@ return {
                 "lua-language-server",
                 "bash-language-server",
                 "jsonls",
-                "typstyle"
+                "typstyle",
+                "marksman",
+                "prettier"
             }
         }
     }

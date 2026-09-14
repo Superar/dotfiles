@@ -6,6 +6,7 @@ return {
         formatters_by_ft = {
             bib = { "bibtex-tidy" },
             python = { "ruff_organize_imports", "ruff_format" },
+            markdown = { "prettier" }
         },
         formatters = {
             ["bibtex-tidy"] = {
