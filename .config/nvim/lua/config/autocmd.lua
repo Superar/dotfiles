@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 vim.api.nvim_create_autocmd("FileType", {
     callback = function(ev)
+        if ev.match == "tex" then return end
         local lang = vim.treesitter.language.get_lang(ev.match)
         if not lang then return end
         local ok, loaded = pcall(vim.treesitter.language.add, lang)
