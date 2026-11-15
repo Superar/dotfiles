@@ -91,4 +91,5 @@ vim.lsp.enable({
     "lua_ls",
     "bashls",
     "jsonls",
+    "rust_analyzer",
 })

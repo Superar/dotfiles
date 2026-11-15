@@ -13,7 +13,9 @@ return {
             "vimdoc",
             "markdown",
             "markdown_inline",
-            "typst"
+            "typst",
+            "rust",
+            "toml",
         })
     end
 }
