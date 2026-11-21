@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         if vim.lsp.get_client_by_id(ev.data.client_id).name ~= "tinymist" then return end
         local main = vim.fn.getcwd() .. "/main.typ"
-        if main then vim.schedule(function() tinymist_pin(main) end) end
+        if vim.uv.fs_stat(main) then vim.schedule(function() tinymist_pin(main) end) end
     end,
 })
 
