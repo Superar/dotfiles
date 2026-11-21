@@ -42,6 +42,8 @@ sudo apt install libclang-dev
 cargo install --locked zoxide tree-sitter-cli typst-cli
 brew install fzf
 curl -sS https://starship.rs/install.sh | sh
+
+uv tool install huggingface-hub ruff
 ```
 
 ## Apps in `/opt`
