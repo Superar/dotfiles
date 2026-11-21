@@ -1,8 +1,8 @@
 -- -------- Autocommands --------
 
-TrimWhitespace = function(patterns)
+local TrimWhitespace = function()
     local save = vim.fn.winsaveview()
-    vim.api.nvim_exec('keeppatterns %s/\\s\\+$//e', false)
+    vim.cmd([[keeppatterns %s/\s\+$//e]])
     vim.fn.winrestview(save)
 end
 
@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    group = TrimWhitespaceAugroup,
     callback = function(ev)
         if ev.match == "tex" then return end
         local lang = vim.treesitter.language.get_lang(ev.match)
