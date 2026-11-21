@@ -1,5 +1,5 @@
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-export PATH="$PATH:/opt/Zotero_linux-x86_64"
+export PATH="$PATH:/opt/zotero"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 eval "$(starship init bash)"

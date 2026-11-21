@@ -18,46 +18,79 @@ This repository contains my personal configuration files (dotfiles).
    stow -v .
    ```
 
-## Further setup
+## Package managers
 
-1. Install [rustup](https://rustup.rs/)
-2. Install tree-sitter cli with:
+```bash
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash
+nvm install --lts
+```
+
+## Terminal tools
 
 ```bash
 sudo apt install libclang-dev
-cargo install --locked tree-sitter-cli
+cargo install --locked zoxide tree-sitter-cli typst-cli
+brew install fzf
+curl -sS https://starship.rs/install.sh | sh
 ```
-3. Install node and npm
+
+## Apps in `/opt`
 
 ```bash
-sudo apt install nodejs npm
-npm install -g neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 ```
-4. Install pip and pynvim
+
+- [Zotero](https://www.zotero.org/download/): extract the tarball to `/opt/zotero`
 
 ```bash
-sudo apt install python3-pip python3-pynvim python3-venv
+sudo tar -xf Zotero-*.tar.* -C /opt
+sudo mv /opt/Zotero_linux-x86_64 /opt/zotero
+sudo chown -R $USER /opt/zotero
+cd /opt/zotero
+./set_launcher_icon
+ln -sf /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
 ```
 
-If this does not work, fix the python3 version and install it directly with
+## Kitty and font
 
 ```bash
-python3 -m pip install pynvim --break-system-packages
+# Kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+sudo ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten /usr/local/bin/
+
+# CaskaydiaCove Nerd Font
+curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip
+unzip CascadiaCode.zip -d ~/.local/share/fonts/CaskaydiaCove
+fc-cache -f
 ```
 
-5. Install luarocks
-
-```bash
-sudo apt install luarocks
-sudo luarocks install jsregexp
-```
-
-6. Install latex and utilities
+## LaTeX
 
 ```bash
 sudo apt install texlive-base texlive-bibtex-extra texlive-fonts-extra \
 texlive-latex-recommended texlive-publishers texlive-science \
 texlive-xetex biber zathura xdotool
+```
+
+
+## Shell
+
+Add to the end of `~/.bashrc`:
+
+```bash
+[ -f ~/.bash_extras ] && . ~/.bash_extras
 ```
 
 ## Things I use
@@ -67,6 +100,8 @@ texlive-xetex biber zathura xdotool
 - [Gruvbox](https://github.com/morhetz/gruvbox) - Color Scheme
 - [Neovim](https://neovim.io/) - Text Editor
 - [lazy.nvim](https://lazy.folke.io/) - lazy.nvim Plugin Manager
+- [Zoxide](https://github.com/ajeetdsouza/zoxide) - Better `cd` command
+- [fzf](https://github.com/junegunn/fzf) - CLI fuzzy finder
 
 ## Quick fixes
 
