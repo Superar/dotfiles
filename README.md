@@ -69,12 +69,16 @@ ln -sf /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
 # Kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 sudo ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten /usr/local/bin/
+cp ~/.local/kitty.app/share/applications/kitty*.desktop ~/.local/share/applications/
+sed -i "s|Icon=kitty|Icon=$HOME/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 
 # CaskaydiaCove Nerd Font
 curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip
 unzip CascadiaCode.zip -d ~/.local/share/fonts/CaskaydiaCove
 fc-cache -f
 ```
+
+Remember to set Kitty as the default terminal in PopOS!'s configurations.
 
 ## LaTeX
 
