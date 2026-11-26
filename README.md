@@ -142,3 +142,12 @@ git config --global core.editor "nvim"
 
 > [!IMPORTANT]
 > Always use *absolute paths* with `ln -s`.
+
+## How to install Windows games through Steam
+
+1. Download the `.exe` installer
+2. Add installer as non-steam game
+3. Run the installer and install it either to `Z:\home\mlinacio\Games` or `Z:\home\mlinacio\HDD\Jogos`
+4. Edit the configuration of the non-steam game to point to the game's installed `.exe` and make it open within the game's folder
+5. Rename the non-steam game
+6. Download the icon, add it to the game's folder, and add to the non-steam game (it appears after a reload)
