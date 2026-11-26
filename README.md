@@ -140,5 +140,5 @@ git config --global core.editor "nvim"
     - `.desktop` file will need to be created by hand;
 - `.deb`, just install with `apt install`, it will go to `/usr/bin/`
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > Always use *absolute paths* with `ln -s`.
