@@ -52,6 +52,11 @@ uv tool install huggingface-hub ruff
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim-linux-x86_64
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+
+# Create links
+ln -s /opt/nvim-linux-x86_64/bin/nvim .local/bin/nvim
+ln -s /opt/nvim-linux-x86_64/share/applications/nvim.desktop .local/share/applications/nvim.desktop
+ln -s /opt/nvim-linux-x86_64/share/icons/hicolor/128x128/apps/nvim.png .local/share/icons/hicolor/128x128/apps/nvim.png
 ```
 
 - [Zotero](https://www.zotero.org/download/): extract the tarball to `/opt/zotero`
@@ -122,3 +127,18 @@ options snd-hda-intel model=dell-headset-multi
 ```bash
 git config --global core.editor "nvim"
 ```
+
+## Where to install things
+
+- Tarball: Extract to `/opt/`, then link:
+    - binary -> `~/.local/bin/`;
+    - `.desktop` -> `~/.local/share/applications`;
+    - icon -> `~/.local/share/icons`, according to the subfolders within the tarball;
+- AppImage: Add to `~/Applications/`, then:
+    - `chmod +x`;
+    - link to `~/.local/bin`;
+    - `.desktop` file will need to be created by hand;
+- `.deb`, just install with `apt install`, it will go to `/usr/bin/`
+
+> [!ATTENTION]
+> Always use *absolute paths* with `ln -s`.
